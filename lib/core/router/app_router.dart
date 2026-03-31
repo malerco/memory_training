@@ -19,6 +19,8 @@ class AppRouter {
   static const String memoryMatrix = '/memory-matrix';
   static const String findPairSize = '/find-pair/size';
   static const String findPairGame = '/find-pair/game';
+  static const String nBack = '/n_back';
+  static const String sequenceMemory = '/sequence_memory';
 
   static final GoRouter router = GoRouter(
     initialLocation: splash,
