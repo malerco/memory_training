@@ -88,8 +88,6 @@ class _TrainingCardState extends State<TrainingCard> {
                     style: context.textStyles.titleMedium?.copyWith(
                       color: context.colors.textPrimary,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 2),
                   Text(
@@ -98,8 +96,7 @@ class _TrainingCardState extends State<TrainingCard> {
                       color: context.colors.textSecondary,
                       fontSize: 11,
                     ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+
                   ),
                 ],
               ),

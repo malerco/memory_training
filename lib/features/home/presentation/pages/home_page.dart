@@ -118,9 +118,9 @@ class _HomeView extends StatelessWidget {
                     final isPortrait = constraints.maxHeight > constraints.maxWidth;
                     final crossAxisCount = isPortrait ? 2 : (constraints.maxWidth > 900 ? 3 : 2);
 
-                    final cardHeight = isPortrait ? 140.0 : 120.0;
+                    // final cardHeight = isPortrait ? 140.0 : 120.0;
                     final cardWidth = (constraints.maxWidth - (crossAxisCount - 1) * 16) / crossAxisCount;
-                    final childAspectRatio = cardWidth / cardHeight;
+                    // final childAspectRatio = cardWidth / cardHeight;
 
                     final trainers = getItems(context);
 
@@ -130,7 +130,7 @@ class _HomeView extends StatelessWidget {
                         crossAxisCount: crossAxisCount,
                         crossAxisSpacing: 16,
                         mainAxisSpacing: 16,
-                        childAspectRatio: childAspectRatio,
+
                       ),
                       itemCount: trainers.length,
                       itemBuilder: (context, index) {

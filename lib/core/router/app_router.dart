@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/leaderboard/presentation/pages/leaderboard_page.dart';
+import '../../features/repeat_pattern/presentation/pages/repeat_pattern_game_page.dart';
+import '../../features/repeat_pattern/presentation/pages/repeat_pattern_size_page.dart';
 import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/home/presentation/pages/home_page.dart';
 
@@ -44,6 +47,51 @@ class AppRouter {
             return FadeTransition(opacity: animation, child: child);
           },
         ),
+      ),
+
+      GoRoute(
+        path: leaderboard,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const LeaderboardPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            final tween = Tween(begin: begin, end: end)
+                .chain(CurveTween(curve: Curves.easeInOut));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: repeatPatternSize,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const RepeatPatternSizePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: repeatPatternGame,
+        pageBuilder: (context, state) {
+          final extra = state.extra as Map<String, int>;
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: RepeatPatternGamePage(
+              rows: extra['rows']!,
+              cols: extra['cols']!,
+            ),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+          );
+        },
       ),
     ],
   );

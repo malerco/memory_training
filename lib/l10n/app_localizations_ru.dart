@@ -99,10 +99,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get backToMenu => 'В меню';
 
   @override
-  String get memorize => 'Запомните паттерн';
+  String get memorize => 'Запомните комбинацию';
 
   @override
-  String get reproduce => 'Воспроизведите паттерн';
+  String get reproduce => 'Воспроизведите комбинацию';
 
   @override
   String get correct => 'Правильно!';
@@ -168,14 +168,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String get gotIt => 'Понятно!';
 
   @override
-  String get repeatPatternTitle => 'Повтори паттерн';
+  String get repeatPatternTitle => 'Повтори комбинацию';
 
   @override
   String get repeatPatternDescription => 'Запомните и воспроизведите связи';
 
   @override
   String get repeatPatternRules =>
-      '1. Запомните соединения между точками\n2. Каждая точка может иметь только ОДНО соединение\n3. Воспроизведите точно такой же паттерн\n4. Нажимайте между точками для создания связей\n5. Завершите как можно быстрее';
+      '1. Запомните соединения между точками\n2. Каждая точка может иметь только ОДНО соединение\n3. Воспроизведите точно такую же комбинацию\n4. Нажимайте между точками для создания связей\n5. Завершите как можно быстрее';
 
   @override
   String get schulteTitle => 'Таблица Шульте';
