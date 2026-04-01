@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/gorbov_schulte/presentation/pages/gorbov_game_page.dart';
+import '../../features/gorbov_schulte/presentation/pages/gorbov_size_page.dart';
 import '../../features/leaderboard/presentation/pages/leaderboard_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_game_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_size_page.dart';
@@ -114,6 +116,33 @@ class AppRouter {
           return CustomTransitionPage(
             key: state.pageKey,
             child: SchulteGamePage(gridRows: rows, gridCols: cols,),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: gorbovSize,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const GorbovSizePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: gorbovGame,
+        pageBuilder: (context, state) {
+          final extra = state.extra as Map<String, int>;
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: GorbovGamePage(
+              rows: extra['rows']!,
+              cols: extra['cols']!,
+            ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               return FadeTransition(opacity: animation, child: child);
