@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/gorbov_schulte/presentation/pages/gorbov_game_page.dart';
 import '../../features/gorbov_schulte/presentation/pages/gorbov_size_page.dart';
 import '../../features/leaderboard/presentation/pages/leaderboard_page.dart';
+import '../../features/memory_matrix/presentation/pages/memory_matrix_game_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_game_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_size_page.dart';
 import '../../features/schulte_table/presentation/pages/schulte_game_page.dart';
@@ -149,6 +150,16 @@ class AppRouter {
             },
           );
         },
+      ),
+      GoRoute(
+        path: memoryMatrix,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const MemoryMatrixGamePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
       ),
     ],
   );
