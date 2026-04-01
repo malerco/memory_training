@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../../features/leaderboard/presentation/pages/leaderboard_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_game_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_size_page.dart';
+import '../../features/schulte_table/presentation/pages/schulte_game_page.dart';
+import '../../features/schulte_table/presentation/pages/schulte_size_page.dart';
 import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/home/presentation/pages/home_page.dart';
 
@@ -86,6 +88,32 @@ class AppRouter {
               rows: extra['rows']!,
               cols: extra['cols']!,
             ),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: schulteSize,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const SchulteSizePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: schulteGame,
+        pageBuilder: (context, state) {
+          final extra = state.extra as Map<String,dynamic>;
+          final rows = extra['rows'] as int;
+          final cols = extra['cols'] as int;
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: SchulteGamePage(gridRows: rows, gridCols: cols,),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               return FadeTransition(opacity: animation, child: child);

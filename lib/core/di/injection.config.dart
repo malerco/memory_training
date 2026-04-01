@@ -27,6 +27,8 @@ import '../../features/leaderboard/presentation/bloc/leaderboard_bloc.dart'
     as _i957;
 import '../../features/repeat_pattern/presentation/bloc/repeat_pattern_bloc.dart'
     as _i717;
+import '../../features/schulte_table/presentation/bloc/schulte_bloc.dart'
+    as _i676;
 import 'register_module.dart' as _i291;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -42,6 +44,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.prefs,
       preResolve: true,
     );
+    gh.factory<_i676.SchulteBloc>(() => _i676.SchulteBloc());
     gh.lazySingleton<_i655.LeaderboardRepository>(
       () => _i1008.LeaderboardRepositoryImpl(gh<_i460.SharedPreferences>()),
     );

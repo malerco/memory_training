@@ -47,8 +47,8 @@ class GameStatsDisplay extends StatelessWidget {
         if (currentNumber != null) ...[
           const SizedBox(height: 16),
           _StatItem(
-            label: '',
-            value: currentNumber.toString(),
+            label: '🔎',
+            value: '${currentNumber.toString()}',
             color: context.colors.primary,
             large: true,
           ),

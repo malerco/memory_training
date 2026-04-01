@@ -14,9 +14,9 @@ class RepeatPatternSizePage extends StatelessWidget {
     return SizeSelector(
       title: context.appLocale.repeatPatternTitle,
       options: [
-        SizeOption(rows: 3, cols: 4, label: context.appLocale.easy),
-        SizeOption(rows: 4, cols: 5, label: context.appLocale.medium),
-        SizeOption(rows: 5, cols: 6, label: context.appLocale.hard),
+        SizeOption(rows: 3, cols: 8, label: context.appLocale.easy),
+        SizeOption(rows: 4, cols: 8, label: context.appLocale.medium),
+        SizeOption(rows: 5, cols: 8, label: context.appLocale.hard),
         SizeOption(rows: 6, cols: 8, label: context.appLocale.expert),
       ],
       onSelected: (option) {
