@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/di/injection.dart';
 import '../../../../core/extensions/context_extensions.dart';
 
 import '../../../../core/utils/orientation_helper.dart';
@@ -29,7 +30,7 @@ class _FindPairGamePageState extends State<FindPairGamePage> with LandscapeModeM
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => FindPairBloc()..add(FindPairEvent.start(rows: widget.rows, cols: widget.cols)),
+      create: (_) => getIt<FindPairBloc>()..add(FindPairEvent.start(rows: widget.rows, cols: widget.cols)),
       child: const _GameView(),
     );
   }

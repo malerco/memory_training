@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/di/injection.dart';
 import '../../../../core/extensions/context_extensions.dart';
 
 import '../../../../core/utils/orientation_helper.dart';
@@ -20,7 +21,7 @@ class _MemoryMatrixGamePageState extends State<MemoryMatrixGamePage> with Landsc
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => MemoryMatrixBloc()..add(const MemoryMatrixEvent.start()),
+      create: (_) => getIt<MemoryMatrixBloc>()..add(const MemoryMatrixEvent.start()),
       child: const _GameView(),
     );
   }

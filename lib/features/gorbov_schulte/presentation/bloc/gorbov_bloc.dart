@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../domain/gorbov_number_model.dart';
 
@@ -12,6 +13,7 @@ part 'gorbov_state.dart';
 
 enum NumberColor { black, red }
 
+@injectable
 class GorbovBloc extends Bloc<GorbovEvent, GorbovState> {
   Timer? _timer;
   final Random _random = Random();

@@ -13,6 +13,8 @@ import '../../features/repeat_pattern/presentation/pages/repeat_pattern_game_pag
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_size_page.dart';
 import '../../features/schulte_table/presentation/pages/schulte_game_page.dart';
 import '../../features/schulte_table/presentation/pages/schulte_size_page.dart';
+import '../../features/sequence_memory/presentation/pages/sequence_memory_game_page.dart';
+import '../../features/sequence_memory/presentation/pages/sequence_memory_size_page.dart';
 import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/home/presentation/pages/home_page.dart';
 
@@ -209,6 +211,29 @@ class AppRouter {
           return CustomTransitionPage(
             key: state.pageKey,
             child: NBackGamePage(nLevel: level),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: '/sequence_memory',
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const SequenceMemorySizePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: '/sequence_memory/game/:size',
+        pageBuilder: (context, state) {
+          final size = int.parse(state.pathParameters['size']!);
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: SequenceMemoryGamePage(gridSize: size),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               return FadeTransition(opacity: animation, child: child);
             },

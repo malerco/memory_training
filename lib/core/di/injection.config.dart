@@ -14,6 +14,8 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../features/find_pair/presentation/bloc/find_pair_bloc.dart' as _i32;
+import '../../features/gorbov_schulte/presentation/bloc/gorbov_bloc.dart'
+    as _i1024;
 import '../../features/leaderboard/data/repositories/leaderboard_repository_impl.dart'
     as _i1008;
 import '../../features/leaderboard/domain/repositories/leaderboard_repository.dart'
@@ -26,10 +28,15 @@ import '../../features/leaderboard/domain/usecases/save_record_usecase.dart'
     as _i950;
 import '../../features/leaderboard/presentation/bloc/leaderboard_bloc.dart'
     as _i957;
+import '../../features/memory_matrix/presentation/bloc/memory_matrix_bloc.dart'
+    as _i632;
+import '../../features/n_back/presentation/bloc/n_back_bloc.dart' as _i475;
 import '../../features/repeat_pattern/presentation/bloc/repeat_pattern_bloc.dart'
     as _i717;
 import '../../features/schulte_table/presentation/bloc/schulte_bloc.dart'
     as _i676;
+import '../../features/sequence_memory/presentation/bloc/sequence_memory_bloc.dart'
+    as _i1068;
 import 'register_module.dart' as _i291;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -46,7 +53,11 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.factory<_i676.SchulteBloc>(() => _i676.SchulteBloc());
+    gh.factory<_i1024.GorbovBloc>(() => _i1024.GorbovBloc());
     gh.factory<_i32.FindPairBloc>(() => _i32.FindPairBloc());
+    gh.factory<_i632.MemoryMatrixBloc>(() => _i632.MemoryMatrixBloc());
+    gh.factory<_i475.NBackBloc>(() => _i475.NBackBloc());
+    gh.factory<_i1068.SequenceMemoryBloc>(() => _i1068.SequenceMemoryBloc());
     gh.lazySingleton<_i655.LeaderboardRepository>(
       () => _i1008.LeaderboardRepositoryImpl(gh<_i460.SharedPreferences>()),
     );

@@ -62,6 +62,7 @@ class GameResultDialog extends StatelessWidget {
         mistakes: mistakes,
         onRestart: onRestart,
         isPercentBased: isPercentBased,
+        isScoreBased: higherIsBetter,
       ),
     );
   }

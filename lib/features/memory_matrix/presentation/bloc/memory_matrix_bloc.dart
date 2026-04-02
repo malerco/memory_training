@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'memory_matrix_bloc.freezed.dart';
 part 'memory_matrix_event.dart';
@@ -11,6 +12,7 @@ part 'memory_matrix_state.dart';
 
 enum MatrixPhase { memorizing, playing, roundResult, completed }
 
+@injectable
 class MemoryMatrixBloc extends Bloc<MemoryMatrixEvent, MemoryMatrixState> {
   Timer? _timer;
   final Random _random = Random();
