@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/chimp_test/presentation/pages/chimp_test_game_page.dart';
+import '../../features/chimp_test/presentation/pages/chimp_test_level_page.dart';
 import '../../features/find_pair/presentation/pages/find_pair_game_page.dart';
 import '../../features/find_pair/presentation/pages/find_pair_size_page.dart';
 import '../../features/gorbov_schulte/presentation/pages/gorbov_game_page.dart';
@@ -33,8 +35,12 @@ class AppRouter {
   static const String memoryMatrix = '/memory-matrix';
   static const String findPairSize = '/find-pair/size';
   static const String findPairGame = '/find-pair/game';
-  static const String nBack = '/n_back';
-  static const String sequenceMemory = '/sequence_memory';
+  static const String nBackGame = '/n_back/game';
+  static const String nBackSize = '/n_back/size';
+  static const String sequenceMemorySize = '/sequence_memory/size';
+  static const String sequenceMemoryGame = '/sequence_memory/game';
+  static const String chimpTestSize = '/chimp_test/size';
+  static const String chimpTestGame = '/chimp_test/game';
 
   static final GoRouter router = GoRouter(
     initialLocation: splash,
@@ -195,7 +201,7 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: '/n_back',
+        path: nBackSize,
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const NBackLevelPage(),
@@ -205,9 +211,10 @@ class AppRouter {
         ),
       ),
       GoRoute(
-        path: '/n_back/game/:level',
+        path: nBackGame,
         pageBuilder: (context, state) {
-          final level = int.parse(state.pathParameters['level']!);
+          final extra = state.extra as Map<String, int>;
+          final level = extra['level'] ?? 2;
           return CustomTransitionPage(
             key: state.pageKey,
             child: NBackGamePage(nLevel: level),
@@ -218,7 +225,7 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: '/sequence_memory',
+        path: sequenceMemorySize,
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const SequenceMemorySizePage(),
@@ -228,12 +235,37 @@ class AppRouter {
         ),
       ),
       GoRoute(
-        path: '/sequence_memory/game/:size',
+        path: sequenceMemoryGame,
         pageBuilder: (context, state) {
-          final size = int.parse(state.pathParameters['size']!);
+          final extra = state.extra as Map<String, int>;
+          final size = extra['size'] ?? 3;
           return CustomTransitionPage(
             key: state.pageKey,
             child: SequenceMemoryGamePage(gridSize: size),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: chimpTestSize,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const ChimpTestLevelPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: chimpTestGame,
+        pageBuilder: (context, state) {
+          final extra = state.extra as Map<String, int>;
+          final size = extra['size'] ?? 4;
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: ChimpTestGamePage(gridSize: size),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               return FadeTransition(opacity: animation, child: child);
             },

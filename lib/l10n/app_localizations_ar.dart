@@ -263,4 +263,49 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sequenceLength => 'التسلسل';
+
+  @override
+  String get chimpTestTitle => 'اختبار الشمبانزي';
+
+  @override
+  String get chimpTestDescription => 'تذكر مواقع الأرقام وانقر بالترتيب';
+
+  @override
+  String get chimpTestRules =>
+      '1. تظهر الأرقام على الشبكة لفترة وجيزة\n2. بعد اختفائها، انقر عليها بالترتيب (1، 2، 3...)\n3. كل جولة تضيف رقماً إضافياً\n4. نقرة خاطئة واحدة تنهي اللعبة\n5. مبني على بحث تفوق فيه الشمبانزي على البشر';
+
+  @override
+  String get tapNumber => 'انقر على الرقم';
+
+  @override
+  String get pictureMemoryTitle => 'ذاكرة الصور';
+
+  @override
+  String get pictureMemoryDescription => 'تذكر الصور التي رأيتها';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. تظهر الصور واحدة تلو الأخرى\n2. حدد إذا رأيت هذه الصورة من قبل\n3. انقر \'جديد\' إذا كانت أول مرة\n4. انقر \'رأيتها\' إذا رأيتها سابقاً\n5. لديك 3 حياة - لا تخطئ!';
+
+  @override
+  String get haveYouSeenThis => 'هل رأيت هذا؟';
+
+  @override
+  String get newPicture => 'جديد';
+
+  @override
+  String get seenBefore => 'رأيتها';
+
+  @override
+  String get objectLocationTitle => 'موقع الأشياء';
+
+  @override
+  String get objectLocationDescription => 'تذكر أين كانت الأشياء';
+
+  @override
+  String get objectLocationRules =>
+      '1. احفظ مواقع الأشياء على الشبكة\n2. بعد اختفائها، أعدها إلى أماكنها\n3. انقر على الخلايا لوضع الأشياء\n4. كل جولة تضيف المزيد من الأشياء\n5. ضعها جميعاً بشكل صحيح للتقدم';
+
+  @override
+  String get placeObjects => 'ضع الأشياء في أماكنها';
 }

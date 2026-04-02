@@ -82,5 +82,19 @@
   "yourTurn": "당신 차례",
   "wrong": "틀림!",
   "completed": "완료!",
-  "sequenceLength": "시퀀스"
+  "sequenceLength": "시퀀스",
+  "chimpTestTitle": "침팬지 테스트",
+  "chimpTestDescription": "숫자 위치를 기억하고 순서대로 탭",
+  "chimpTestRules": "1. 그리드에 숫자가 잠시 나타남\n2. 숨겨진 후 오름차순으로 탭 (1, 2, 3...)\n3. 매 라운드마다 숫자 추가\n4. 잘못 탭하면 게임 종료\n5. 침팬지가 인간을 능가한 연구 기반",
+  "tapNumber": "숫자 탭",
+  "pictureMemoryTitle": "그림 기억",
+  "pictureMemoryDescription": "본 그림 기억하기",
+  "pictureMemoryRules": "1. 그림이 하나씩 나타남\n2. 이 그림을 본 적 있는지 결정\n3. 처음이면 '새것' 탭\n4. 본 적 있으면 '봤음' 탭\n5. 목숨 3개 - 실수하지 마세요!",
+  "haveYouSeenThis": "이것을 본 적 있나요?",
+  "newPicture": "새것",
+  "seenBefore": "봤음",
+  "objectLocationTitle": "물체 위치",
+  "objectLocationDescription": "물체가 어디 있었는지 기억",
+  "objectLocationRules": "1. 그리드의 물체 위치 기억\n2. 사라진 후 다시 배치\n3. 셀을 탭하여 물체 배치\n4. 매 라운드마다 물체 추가\n5. 모두 정확히 배치하여 진행",
+  "placeObjects": "물체를 위치에 배치"
 }

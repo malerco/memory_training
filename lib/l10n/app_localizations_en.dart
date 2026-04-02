@@ -264,4 +264,51 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sequenceLength => 'Sequence';
+
+  @override
+  String get chimpTestTitle => 'Chimp Test';
+
+  @override
+  String get chimpTestDescription =>
+      'Remember number positions and tap in order';
+
+  @override
+  String get chimpTestRules =>
+      '1. Numbers appear on the grid briefly\n2. After they hide, tap them in ascending order (1, 2, 3...)\n3. Each round adds one more number\n4. One wrong tap ends the game\n5. Based on research where chimps outperformed humans';
+
+  @override
+  String get tapNumber => 'Tap number';
+
+  @override
+  String get pictureMemoryTitle => 'Picture Memory';
+
+  @override
+  String get pictureMemoryDescription =>
+      'Remember which pictures you have seen';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. Pictures appear one at a time\n2. Decide if you\'ve seen this picture before\n3. Tap \'New\' if it\'s the first time\n4. Tap \'Seen\' if you\'ve seen it before\n5. You have 3 lives - don\'t make mistakes!';
+
+  @override
+  String get haveYouSeenThis => 'Have you seen this?';
+
+  @override
+  String get newPicture => 'New';
+
+  @override
+  String get seenBefore => 'Seen';
+
+  @override
+  String get objectLocationTitle => 'Object Location';
+
+  @override
+  String get objectLocationDescription => 'Remember where objects were placed';
+
+  @override
+  String get objectLocationRules =>
+      '1. Memorize the positions of objects on the grid\n2. After they disappear, place them back\n3. Tap cells to place objects in order\n4. Each round adds more objects\n5. Place all correctly to advance';
+
+  @override
+  String get placeObjects => 'Place objects in their positions';
 }

@@ -13,6 +13,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../features/chimp_test/presentation/bloc/chimp_test_bloc.dart'
+    as _i499;
 import '../../features/find_pair/presentation/bloc/find_pair_bloc.dart' as _i32;
 import '../../features/gorbov_schulte/presentation/bloc/gorbov_bloc.dart'
     as _i1024;
@@ -58,6 +60,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i632.MemoryMatrixBloc>(() => _i632.MemoryMatrixBloc());
     gh.factory<_i475.NBackBloc>(() => _i475.NBackBloc());
     gh.factory<_i1068.SequenceMemoryBloc>(() => _i1068.SequenceMemoryBloc());
+    gh.factory<_i499.ChimpTestBloc>(() => _i499.ChimpTestBloc());
     gh.lazySingleton<_i655.LeaderboardRepository>(
       () => _i1008.LeaderboardRepositoryImpl(gh<_i460.SharedPreferences>()),
     );

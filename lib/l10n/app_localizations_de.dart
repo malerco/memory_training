@@ -265,4 +265,52 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get sequenceLength => 'Sequenz';
+
+  @override
+  String get chimpTestTitle => 'Schimpansen-Test';
+
+  @override
+  String get chimpTestDescription =>
+      'Merke dir Zahlenpositionen und tippe der Reihe nach';
+
+  @override
+  String get chimpTestRules =>
+      '1. Zahlen erscheinen kurz auf dem Raster\n2. Nach dem Verstecken tippe sie in aufsteigender Reihenfolge (1, 2, 3...)\n3. Jede Runde fügt eine Zahl hinzu\n4. Ein falscher Tipp beendet das Spiel\n5. Basiert auf Forschung, bei der Schimpansen Menschen übertrafen';
+
+  @override
+  String get tapNumber => 'Tippe Zahl';
+
+  @override
+  String get pictureMemoryTitle => 'Bildgedächtnis';
+
+  @override
+  String get pictureMemoryDescription =>
+      'Merke dir welche Bilder du gesehen hast';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. Bilder erscheinen einzeln\n2. Entscheide ob du dieses Bild schon gesehen hast\n3. Tippe \'Neu\' wenn es das erste Mal ist\n4. Tippe \'Gesehen\' wenn du es schon gesehen hast\n5. Du hast 3 Leben - mach keine Fehler!';
+
+  @override
+  String get haveYouSeenThis => 'Hast du das gesehen?';
+
+  @override
+  String get newPicture => 'Neu';
+
+  @override
+  String get seenBefore => 'Gesehen';
+
+  @override
+  String get objectLocationTitle => 'Objektposition';
+
+  @override
+  String get objectLocationDescription =>
+      'Merke dir wo Objekte platziert waren';
+
+  @override
+  String get objectLocationRules =>
+      '1. Merke dir die Positionen der Objekte auf dem Raster\n2. Nachdem sie verschwinden, platziere sie zurück\n3. Tippe auf Zellen um Objekte zu platzieren\n4. Jede Runde fügt mehr Objekte hinzu\n5. Platziere alle korrekt um fortzufahren';
+
+  @override
+  String get placeObjects => 'Platziere Objekte an ihre Positionen';
 }

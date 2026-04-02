@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
+import 'package:memory_training/core/router/app_router.dart';
 
 import '../../../../core/extensions/context_extensions.dart';
 
@@ -29,7 +30,7 @@ class _SequenceMemorySizePageState extends State<SequenceMemorySizePage> with Po
               Row(
                 children: [
                   IconButton(
-                    onPressed: () => context.go('/home'),
+                    onPressed: () => context.go(AppRouter.home),
                     icon: const Icon(Icons.arrow_back_rounded),
                     style: IconButton.styleFrom(
                       backgroundColor: context.colors.surface,
@@ -71,7 +72,7 @@ class _SequenceMemorySizePageState extends State<SequenceMemorySizePage> with Po
                           title: context.appLocale.sequenceMemory,
                           rules: context.appLocale.sequenceMemoryRules,
                           onStart: () {
-                            context.go('/sequence_memory/game/$size');
+                            context.go(AppRouter.sequenceMemoryGame, extra: {'size':size});
                           },
                         );
                       },

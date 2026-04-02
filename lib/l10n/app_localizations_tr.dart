@@ -264,4 +264,50 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get sequenceLength => 'Sıra';
+
+  @override
+  String get chimpTestTitle => 'Şempanze Testi';
+
+  @override
+  String get chimpTestDescription =>
+      'Sayı konumlarını hatırla ve sırayla dokun';
+
+  @override
+  String get chimpTestRules =>
+      '1. Sayılar ızgarada kısa süre görünür\n2. Gizlendikten sonra artan sırayla dokun (1, 2, 3...)\n3. Her tur bir sayı ekler\n4. Yanlış dokunuş oyunu bitirir\n5. Şempanzelerin insanları geçtiği araştırmaya dayalı';
+
+  @override
+  String get tapNumber => 'Sayıya dokun';
+
+  @override
+  String get pictureMemoryTitle => 'Resim Hafızası';
+
+  @override
+  String get pictureMemoryDescription => 'Hangi resimleri gördüğünü hatırla';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. Resimler tek tek görünür\n2. Bu resmi daha önce görüp görmediğine karar ver\n3. İlk kez ise \'Yeni\' dokun\n4. Daha önce gördüysen \'Gördüm\' dokun\n5. 3 canın var - hata yapma!';
+
+  @override
+  String get haveYouSeenThis => 'Bunu gördün mü?';
+
+  @override
+  String get newPicture => 'Yeni';
+
+  @override
+  String get seenBefore => 'Gördüm';
+
+  @override
+  String get objectLocationTitle => 'Nesne Konumu';
+
+  @override
+  String get objectLocationDescription => 'Nesnelerin nerede olduğunu hatırla';
+
+  @override
+  String get objectLocationRules =>
+      '1. Izgaradaki nesne konumlarını ezberle\n2. Kaybolduktan sonra geri koy\n3. Nesne yerleştirmek için hücrelere dokun\n4. Her tur daha fazla nesne ekler\n5. İlerlemek için hepsini doğru yerleştir';
+
+  @override
+  String get placeObjects => 'Nesneleri konumlarına yerleştir';
 }

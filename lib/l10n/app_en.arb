@@ -82,5 +82,19 @@
   "yourTurn": "Your Turn",
   "wrong": "Wrong!",
   "completed": "Completed!",
-  "sequenceLength": "Sequence"
+  "sequenceLength": "Sequence",
+  "chimpTestTitle": "Chimp Test",
+  "chimpTestDescription": "Remember number positions and tap in order",
+  "chimpTestRules": "1. Numbers appear on the grid briefly\n2. After they hide, tap them in ascending order (1, 2, 3...)\n3. Each round adds one more number\n4. One wrong tap ends the game\n5. Based on research where chimps outperformed humans",
+  "tapNumber": "Tap number",
+  "pictureMemoryTitle": "Picture Memory",
+  "pictureMemoryDescription": "Remember which pictures you have seen",
+  "pictureMemoryRules": "1. Pictures appear one at a time\n2. Decide if you've seen this picture before\n3. Tap 'New' if it's the first time\n4. Tap 'Seen' if you've seen it before\n5. You have 3 lives - don't make mistakes!",
+  "haveYouSeenThis": "Have you seen this?",
+  "newPicture": "New",
+  "seenBefore": "Seen",
+  "objectLocationTitle": "Object Location",
+  "objectLocationDescription": "Remember where objects were placed",
+  "objectLocationRules": "1. Memorize the positions of objects on the grid\n2. After they disappear, place them back\n3. Tap cells to place objects in order\n4. Each round adds more objects\n5. Place all correctly to advance",
+  "placeObjects": "Place objects in their positions"
 }

@@ -43,7 +43,7 @@ class SequenceMemoryBloc extends Bloc<SequenceMemoryEvent, SequenceMemoryState> 
       phase: SequencePhase.ready,
     ));
 
-    _timer = Timer(const Duration(milliseconds: 500), () {
+    _timer = Timer(const Duration(milliseconds: 1500), () {
       add(const SequenceMemoryEvent.showSequence());
     });
   }

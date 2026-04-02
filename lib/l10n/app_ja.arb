@@ -82,5 +82,19 @@
   "yourTurn": "あなたの番",
   "wrong": "不正解！",
   "completed": "完了！",
-  "sequenceLength": "シーケンス"
+  "sequenceLength": "シーケンス",
+  "chimpTestTitle": "チンパンジーテスト",
+  "chimpTestDescription": "数字の位置を覚えて順番にタップ",
+  "chimpTestRules": "1. グリッドに数字が一瞬表示される\n2. 隠れた後、昇順でタップする（1, 2, 3...）\n3. 各ラウンドで数字が1つ追加\n4. 間違えるとゲーム終了\n5. チンパンジーが人間を上回った研究に基づく",
+  "tapNumber": "数字をタップ",
+  "pictureMemoryTitle": "画像記憶",
+  "pictureMemoryDescription": "見た画像を覚える",
+  "pictureMemoryRules": "1. 画像が1つずつ表示される\n2. この画像を見たことがあるか判断\n3. 初めてなら「新規」をタップ\n4. 見たことがあれば「見た」をタップ\n5. ライフは3つ - 間違えないで！",
+  "haveYouSeenThis": "これを見たことある？",
+  "newPicture": "新規",
+  "seenBefore": "見た",
+  "objectLocationTitle": "オブジェクトの位置",
+  "objectLocationDescription": "オブジェクトがどこにあったか覚える",
+  "objectLocationRules": "1. グリッド上のオブジェクトの位置を覚える\n2. 消えた後、元の場所に戻す\n3. セルをタップしてオブジェクトを配置\n4. 各ラウンドでオブジェクトが増加\n5. 全て正しく配置して進む",
+  "placeObjects": "オブジェクトを配置"
 }

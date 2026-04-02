@@ -263,4 +263,49 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sequenceLength => 'シーケンス';
+
+  @override
+  String get chimpTestTitle => 'チンパンジーテスト';
+
+  @override
+  String get chimpTestDescription => '数字の位置を覚えて順番にタップ';
+
+  @override
+  String get chimpTestRules =>
+      '1. グリッドに数字が一瞬表示される\n2. 隠れた後、昇順でタップする（1, 2, 3...）\n3. 各ラウンドで数字が1つ追加\n4. 間違えるとゲーム終了\n5. チンパンジーが人間を上回った研究に基づく';
+
+  @override
+  String get tapNumber => '数字をタップ';
+
+  @override
+  String get pictureMemoryTitle => '画像記憶';
+
+  @override
+  String get pictureMemoryDescription => '見た画像を覚える';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. 画像が1つずつ表示される\n2. この画像を見たことがあるか判断\n3. 初めてなら「新規」をタップ\n4. 見たことがあれば「見た」をタップ\n5. ライフは3つ - 間違えないで！';
+
+  @override
+  String get haveYouSeenThis => 'これを見たことある？';
+
+  @override
+  String get newPicture => '新規';
+
+  @override
+  String get seenBefore => '見た';
+
+  @override
+  String get objectLocationTitle => 'オブジェクトの位置';
+
+  @override
+  String get objectLocationDescription => 'オブジェクトがどこにあったか覚える';
+
+  @override
+  String get objectLocationRules =>
+      '1. グリッド上のオブジェクトの位置を覚える\n2. 消えた後、元の場所に戻す\n3. セルをタップしてオブジェクトを配置\n4. 各ラウンドでオブジェクトが増加\n5. 全て正しく配置して進む';
+
+  @override
+  String get placeObjects => 'オブジェクトを配置';
 }

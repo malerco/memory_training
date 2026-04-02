@@ -16,8 +16,8 @@ class NBackBloc extends Bloc<NBackEvent, NBackState> {
   Timer? _timer;
   final Random _random = Random();
   static const int gridSize = 3;
-  static const int showDuration = 1500;
-  static const int waitDuration = 3000;
+  static const int showDuration = 500;
+  static const int waitDuration = 1000;
 
   NBackBloc() : super(const NBackState()) {
     on<_Start>(_onStart);

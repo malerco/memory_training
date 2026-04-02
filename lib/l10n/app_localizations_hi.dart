@@ -263,4 +263,51 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get sequenceLength => 'अनुक्रम';
+
+  @override
+  String get chimpTestTitle => 'चिंपांज़ी टेस्ट';
+
+  @override
+  String get chimpTestDescription =>
+      'संख्याओं की स्थिति याद करें और क्रम में टैप करें';
+
+  @override
+  String get chimpTestRules =>
+      '1. ग्रिड पर संख्याएं संक्षेप में दिखाई देती हैं\n2. छिपने के बाद, उन्हें बढ़ते क्रम में टैप करें (1, 2, 3...)\n3. हर राउंड एक संख्या जोड़ता है\n4. एक गलत टैप खेल समाप्त करता है\n5. शोध पर आधारित जहां चिंपांज़ी ने मनुष्यों को पीछे छोड़ दिया';
+
+  @override
+  String get tapNumber => 'संख्या टैप करें';
+
+  @override
+  String get pictureMemoryTitle => 'चित्र स्मृति';
+
+  @override
+  String get pictureMemoryDescription =>
+      'याद रखें कौन सी तस्वीरें आपने देखी हैं';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. तस्वीरें एक-एक करके दिखाई देती हैं\n2. तय करें कि आपने यह तस्वीर पहले देखी है या नहीं\n3. \'नया\' टैप करें अगर पहली बार है\n4. \'देखा\' टैप करें अगर पहले देखा है\n5. आपके पास 3 जीवन हैं - गलती न करें!';
+
+  @override
+  String get haveYouSeenThis => 'क्या आपने यह देखा है?';
+
+  @override
+  String get newPicture => 'नया';
+
+  @override
+  String get seenBefore => 'देखा';
+
+  @override
+  String get objectLocationTitle => 'वस्तु स्थान';
+
+  @override
+  String get objectLocationDescription => 'याद रखें वस्तुएं कहां थीं';
+
+  @override
+  String get objectLocationRules =>
+      '1. ग्रिड पर वस्तुओं की स्थिति याद करें\n2. गायब होने के बाद, उन्हें वापस रखें\n3. वस्तुओं को रखने के लिए सेल पर टैप करें\n4. हर राउंड अधिक वस्तुएं जोड़ता है\n5. आगे बढ़ने के लिए सभी को सही रखें';
+
+  @override
+  String get placeObjects => 'वस्तुओं को उनकी जगह पर रखें';
 }

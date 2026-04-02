@@ -263,4 +263,49 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get sequenceLength => '시퀀스';
+
+  @override
+  String get chimpTestTitle => '침팬지 테스트';
+
+  @override
+  String get chimpTestDescription => '숫자 위치를 기억하고 순서대로 탭';
+
+  @override
+  String get chimpTestRules =>
+      '1. 그리드에 숫자가 잠시 나타남\n2. 숨겨진 후 오름차순으로 탭 (1, 2, 3...)\n3. 매 라운드마다 숫자 추가\n4. 잘못 탭하면 게임 종료\n5. 침팬지가 인간을 능가한 연구 기반';
+
+  @override
+  String get tapNumber => '숫자 탭';
+
+  @override
+  String get pictureMemoryTitle => '그림 기억';
+
+  @override
+  String get pictureMemoryDescription => '본 그림 기억하기';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. 그림이 하나씩 나타남\n2. 이 그림을 본 적 있는지 결정\n3. 처음이면 \'새것\' 탭\n4. 본 적 있으면 \'봤음\' 탭\n5. 목숨 3개 - 실수하지 마세요!';
+
+  @override
+  String get haveYouSeenThis => '이것을 본 적 있나요?';
+
+  @override
+  String get newPicture => '새것';
+
+  @override
+  String get seenBefore => '봤음';
+
+  @override
+  String get objectLocationTitle => '물체 위치';
+
+  @override
+  String get objectLocationDescription => '물체가 어디 있었는지 기억';
+
+  @override
+  String get objectLocationRules =>
+      '1. 그리드의 물체 위치 기억\n2. 사라진 후 다시 배치\n3. 셀을 탭하여 물체 배치\n4. 매 라운드마다 물체 추가\n5. 모두 정확히 배치하여 진행';
+
+  @override
+  String get placeObjects => '물체를 위치에 배치';
 }

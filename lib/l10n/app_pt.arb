@@ -82,5 +82,19 @@
   "yourTurn": "Sua Vez",
   "wrong": "Errado!",
   "completed": "Concluído!",
-  "sequenceLength": "Sequência"
+  "sequenceLength": "Sequência",
+  "chimpTestTitle": "Teste do Chimpanzé",
+  "chimpTestDescription": "Lembre as posições dos números e toque em ordem",
+  "chimpTestRules": "1. Os números aparecem brevemente na grade\n2. Depois que se escondem, toque em ordem crescente (1, 2, 3...)\n3. Cada rodada adiciona um número\n4. Um toque errado termina o jogo\n5. Baseado em pesquisa onde chimpanzés superaram humanos",
+  "tapNumber": "Toque número",
+  "pictureMemoryTitle": "Memória de Imagens",
+  "pictureMemoryDescription": "Lembre quais imagens você viu",
+  "pictureMemoryRules": "1. As imagens aparecem uma de cada vez\n2. Decida se você viu esta imagem antes\n3. Toque 'Nova' se for a primeira vez\n4. Toque 'Vista' se já viu antes\n5. Você tem 3 vidas - não erre!",
+  "haveYouSeenThis": "Você viu isto?",
+  "newPicture": "Nova",
+  "seenBefore": "Vista",
+  "objectLocationTitle": "Localização de Objetos",
+  "objectLocationDescription": "Lembre onde os objetos estavam",
+  "objectLocationRules": "1. Memorize as posições dos objetos na grade\n2. Depois que desaparecem, coloque-os de volta\n3. Toque nas células para colocar objetos\n4. Cada rodada adiciona mais objetos\n5. Coloque todos corretamente para avançar",
+  "placeObjects": "Coloque objetos em suas posições"
 }

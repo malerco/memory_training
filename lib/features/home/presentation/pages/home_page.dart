@@ -69,15 +69,22 @@ class _HomeView extends StatelessWidget {
         title: context.appLocale.nBackTitle,
         description: context.appLocale.nBackDescription,
         icon: Icons.history_rounded,
-        route: AppRouter.nBack,
+        route: AppRouter.nBackSize,
         gradient: [const Color(0xFF667eea), const Color(0xFF764ba2)],
       ),
       TrainingModel(
         title: context.appLocale.sequenceMemory,
         description: context.appLocale.sequenceMemoryDescription,
         icon: Icons.linear_scale_rounded,
-        route: AppRouter.sequenceMemory,
+        route: AppRouter.sequenceMemorySize,
         gradient: [const Color(0xFFf093fb), const Color(0xFFf5576c)],
+      ),
+      TrainingModel(
+        title: context.appLocale.chimpTestTitle,
+        description: context.appLocale.chimpTestDescription,
+        icon: Icons.pets_rounded,
+        route: AppRouter.chimpTestSize,
+        gradient: [const Color(0xFF11998e), const Color(0xFF38ef7d)],
       ),
     ];
     return trainers;

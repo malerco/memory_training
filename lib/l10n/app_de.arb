@@ -82,5 +82,19 @@
   "yourTurn": "Dein Zug",
   "wrong": "Falsch!",
   "completed": "Abgeschlossen!",
-  "sequenceLength": "Sequenz"
+  "sequenceLength": "Sequenz",
+  "chimpTestTitle": "Schimpansen-Test",
+  "chimpTestDescription": "Merke dir Zahlenpositionen und tippe der Reihe nach",
+  "chimpTestRules": "1. Zahlen erscheinen kurz auf dem Raster\n2. Nach dem Verstecken tippe sie in aufsteigender Reihenfolge (1, 2, 3...)\n3. Jede Runde fügt eine Zahl hinzu\n4. Ein falscher Tipp beendet das Spiel\n5. Basiert auf Forschung, bei der Schimpansen Menschen übertrafen",
+  "tapNumber": "Tippe Zahl",
+  "pictureMemoryTitle": "Bildgedächtnis",
+  "pictureMemoryDescription": "Merke dir welche Bilder du gesehen hast",
+  "pictureMemoryRules": "1. Bilder erscheinen einzeln\n2. Entscheide ob du dieses Bild schon gesehen hast\n3. Tippe 'Neu' wenn es das erste Mal ist\n4. Tippe 'Gesehen' wenn du es schon gesehen hast\n5. Du hast 3 Leben - mach keine Fehler!",
+  "haveYouSeenThis": "Hast du das gesehen?",
+  "newPicture": "Neu",
+  "seenBefore": "Gesehen",
+  "objectLocationTitle": "Objektposition",
+  "objectLocationDescription": "Merke dir wo Objekte platziert waren",
+  "objectLocationRules": "1. Merke dir die Positionen der Objekte auf dem Raster\n2. Nachdem sie verschwinden, platziere sie zurück\n3. Tippe auf Zellen um Objekte zu platzieren\n4. Jede Runde fügt mehr Objekte hinzu\n5. Platziere alle korrekt um fortzufahren",
+  "placeObjects": "Platziere Objekte an ihre Positionen"
 }

@@ -82,5 +82,19 @@
   "yourTurn": "Tu Turno",
   "wrong": "¡Incorrecto!",
   "completed": "¡Completado!",
-  "sequenceLength": "Secuencia"
+  "sequenceLength": "Secuencia",
+  "chimpTestTitle": "Test del Chimpancé",
+  "chimpTestDescription": "Recuerda posiciones de números y toca en orden",
+  "chimpTestRules": "1. Los números aparecen brevemente en la cuadrícula\n2. Después de ocultarse, tócalos en orden ascendente (1, 2, 3...)\n3. Cada ronda añade un número más\n4. Un toque incorrecto termina el juego\n5. Basado en investigación donde los chimpancés superaron a los humanos",
+  "tapNumber": "Toca número",
+  "pictureMemoryTitle": "Memoria de Imágenes",
+  "pictureMemoryDescription": "Recuerda qué imágenes has visto",
+  "pictureMemoryRules": "1. Las imágenes aparecen una a una\n2. Decide si has visto esta imagen antes\n3. Toca 'Nueva' si es la primera vez\n4. Toca 'Vista' si la has visto antes\n5. Tienes 3 vidas - ¡no cometas errores!",
+  "haveYouSeenThis": "¿Has visto esto?",
+  "newPicture": "Nueva",
+  "seenBefore": "Vista",
+  "objectLocationTitle": "Ubicación de Objetos",
+  "objectLocationDescription": "Recuerda dónde estaban los objetos",
+  "objectLocationRules": "1. Memoriza las posiciones de los objetos en la cuadrícula\n2. Después de desaparecer, colócalos de vuelta\n3. Toca celdas para colocar objetos\n4. Cada ronda añade más objetos\n5. Coloca todos correctamente para avanzar",
+  "placeObjects": "Coloca objetos en sus posiciones"
 }

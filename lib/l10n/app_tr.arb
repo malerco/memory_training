@@ -82,5 +82,19 @@
   "yourTurn": "Senin Sıran",
   "wrong": "Yanlış!",
   "completed": "Tamamlandı!",
-  "sequenceLength": "Sıra"
+  "sequenceLength": "Sıra",
+  "chimpTestTitle": "Şempanze Testi",
+  "chimpTestDescription": "Sayı konumlarını hatırla ve sırayla dokun",
+  "chimpTestRules": "1. Sayılar ızgarada kısa süre görünür\n2. Gizlendikten sonra artan sırayla dokun (1, 2, 3...)\n3. Her tur bir sayı ekler\n4. Yanlış dokunuş oyunu bitirir\n5. Şempanzelerin insanları geçtiği araştırmaya dayalı",
+  "tapNumber": "Sayıya dokun",
+  "pictureMemoryTitle": "Resim Hafızası",
+  "pictureMemoryDescription": "Hangi resimleri gördüğünü hatırla",
+  "pictureMemoryRules": "1. Resimler tek tek görünür\n2. Bu resmi daha önce görüp görmediğine karar ver\n3. İlk kez ise 'Yeni' dokun\n4. Daha önce gördüysen 'Gördüm' dokun\n5. 3 canın var - hata yapma!",
+  "haveYouSeenThis": "Bunu gördün mü?",
+  "newPicture": "Yeni",
+  "seenBefore": "Gördüm",
+  "objectLocationTitle": "Nesne Konumu",
+  "objectLocationDescription": "Nesnelerin nerede olduğunu hatırla",
+  "objectLocationRules": "1. Izgaradaki nesne konumlarını ezberle\n2. Kaybolduktan sonra geri koy\n3. Nesne yerleştirmek için hücrelere dokun\n4. Her tur daha fazla nesne ekler\n5. İlerlemek için hepsini doğru yerleştir",
+  "placeObjects": "Nesneleri konumlarına yerleştir"
 }

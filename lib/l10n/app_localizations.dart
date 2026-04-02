@@ -617,6 +617,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sequence'**
   String get sequenceLength;
+
+  /// No description provided for @chimpTestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chimp Test'**
+  String get chimpTestTitle;
+
+  /// No description provided for @chimpTestDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember number positions and tap in order'**
+  String get chimpTestDescription;
+
+  /// No description provided for @chimpTestRules.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Numbers appear on the grid briefly\n2. After they hide, tap them in ascending order (1, 2, 3...)\n3. Each round adds one more number\n4. One wrong tap ends the game\n5. Based on research where chimps outperformed humans'**
+  String get chimpTestRules;
+
+  /// No description provided for @tapNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap number'**
+  String get tapNumber;
+
+  /// No description provided for @pictureMemoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Picture Memory'**
+  String get pictureMemoryTitle;
+
+  /// No description provided for @pictureMemoryDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember which pictures you have seen'**
+  String get pictureMemoryDescription;
+
+  /// No description provided for @pictureMemoryRules.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Pictures appear one at a time\n2. Decide if you\'ve seen this picture before\n3. Tap \'New\' if it\'s the first time\n4. Tap \'Seen\' if you\'ve seen it before\n5. You have 3 lives - don\'t make mistakes!'**
+  String get pictureMemoryRules;
+
+  /// No description provided for @haveYouSeenThis.
+  ///
+  /// In en, this message translates to:
+  /// **'Have you seen this?'**
+  String get haveYouSeenThis;
+
+  /// No description provided for @newPicture.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get newPicture;
+
+  /// No description provided for @seenBefore.
+  ///
+  /// In en, this message translates to:
+  /// **'Seen'**
+  String get seenBefore;
+
+  /// No description provided for @objectLocationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Object Location'**
+  String get objectLocationTitle;
+
+  /// No description provided for @objectLocationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember where objects were placed'**
+  String get objectLocationDescription;
+
+  /// No description provided for @objectLocationRules.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Memorize the positions of objects on the grid\n2. After they disappear, place them back\n3. Tap cells to place objects in order\n4. Each round adds more objects\n5. Place all correctly to advance'**
+  String get objectLocationRules;
+
+  /// No description provided for @placeObjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Place objects in their positions'**
+  String get placeObjects;
 }
 
 class _AppLocalizationsDelegate

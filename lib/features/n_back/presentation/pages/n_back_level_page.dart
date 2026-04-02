@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
+import 'package:memory_training/core/router/app_router.dart';
 
 import '../../../../core/extensions/context_extensions.dart';
 
@@ -67,7 +68,7 @@ class _NBackLevelPageState extends State<NBackLevelPage> with PortraitModeMixin 
                           title: context.appLocale.nBackTitle,
                           rules: context.appLocale.nBackRules,
                           onStart: () {
-                            context.go('/n_back/game/$level');
+                            context.go(AppRouter.nBackGame, extra: {'level' : level});
                           },
                         );
                       },

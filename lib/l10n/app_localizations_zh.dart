@@ -263,4 +263,49 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get sequenceLength => '序列';
+
+  @override
+  String get chimpTestTitle => '黑猩猩测试';
+
+  @override
+  String get chimpTestDescription => '记住数字位置并按顺序点击';
+
+  @override
+  String get chimpTestRules =>
+      '1. 数字短暂出现在网格上\n2. 隐藏后按升序点击（1, 2, 3...）\n3. 每轮增加一个数字\n4. 点错一次游戏结束\n5. 基于黑猩猩超越人类的研究';
+
+  @override
+  String get tapNumber => '点击数字';
+
+  @override
+  String get pictureMemoryTitle => '图片记忆';
+
+  @override
+  String get pictureMemoryDescription => '记住你看过的图片';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. 图片逐一出现\n2. 判断是否见过这张图片\n3. 第一次见点击「新的」\n4. 见过就点击「见过」\n5. 你有3条命 - 别出错！';
+
+  @override
+  String get haveYouSeenThis => '你见过这个吗？';
+
+  @override
+  String get newPicture => '新的';
+
+  @override
+  String get seenBefore => '见过';
+
+  @override
+  String get objectLocationTitle => '物体位置';
+
+  @override
+  String get objectLocationDescription => '记住物体在哪里';
+
+  @override
+  String get objectLocationRules =>
+      '1. 记住网格上物体的位置\n2. 消失后将它们放回原位\n3. 点击单元格放置物体\n4. 每轮增加更多物体\n5. 全部正确放置才能继续';
+
+  @override
+  String get placeObjects => '将物体放到正确位置';
 }

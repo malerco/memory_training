@@ -263,4 +263,50 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get sequenceLength => 'Последовательность';
+
+  @override
+  String get chimpTestTitle => 'Тест шимпанзе';
+
+  @override
+  String get chimpTestDescription =>
+      'Запомните позиции чисел и нажмите по порядку';
+
+  @override
+  String get chimpTestRules =>
+      '1. Числа появляются на сетке ненадолго\n2. После скрытия нажмите их по порядку (1, 2, 3...)\n3. Каждый раунд добавляет ещё одно число\n4. Одно неверное нажатие — конец игры\n5. Основано на исследовании, где шимпанзе превзошли людей';
+
+  @override
+  String get tapNumber => 'Нажмите число';
+
+  @override
+  String get pictureMemoryTitle => 'Память на картинки';
+
+  @override
+  String get pictureMemoryDescription => 'Запомните какие картинки вы видели';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. Картинки появляются по одной\n2. Определите, видели ли вы эту картинку раньше\n3. Нажмите \'Новая\' если впервые\n4. Нажмите \'Видел\' если уже была\n5. У вас 3 жизни — не ошибайтесь!';
+
+  @override
+  String get haveYouSeenThis => 'Вы это видели?';
+
+  @override
+  String get newPicture => 'Новая';
+
+  @override
+  String get seenBefore => 'Видел';
+
+  @override
+  String get objectLocationTitle => 'Расположение объектов';
+
+  @override
+  String get objectLocationDescription => 'Запомните где были объекты';
+
+  @override
+  String get objectLocationRules =>
+      '1. Запомните позиции объектов на сетке\n2. После исчезновения верните их на места\n3. Нажимайте на ячейки чтобы разместить объекты\n4. Каждый раунд добавляет больше объектов\n5. Разместите все правильно чтобы продолжить';
+
+  @override
+  String get placeObjects => 'Разместите объекты на свои места';
 }

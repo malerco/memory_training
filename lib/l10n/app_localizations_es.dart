@@ -263,4 +263,50 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sequenceLength => 'Secuencia';
+
+  @override
+  String get chimpTestTitle => 'Test del Chimpancé';
+
+  @override
+  String get chimpTestDescription =>
+      'Recuerda posiciones de números y toca en orden';
+
+  @override
+  String get chimpTestRules =>
+      '1. Los números aparecen brevemente en la cuadrícula\n2. Después de ocultarse, tócalos en orden ascendente (1, 2, 3...)\n3. Cada ronda añade un número más\n4. Un toque incorrecto termina el juego\n5. Basado en investigación donde los chimpancés superaron a los humanos';
+
+  @override
+  String get tapNumber => 'Toca número';
+
+  @override
+  String get pictureMemoryTitle => 'Memoria de Imágenes';
+
+  @override
+  String get pictureMemoryDescription => 'Recuerda qué imágenes has visto';
+
+  @override
+  String get pictureMemoryRules =>
+      '1. Las imágenes aparecen una a una\n2. Decide si has visto esta imagen antes\n3. Toca \'Nueva\' si es la primera vez\n4. Toca \'Vista\' si la has visto antes\n5. Tienes 3 vidas - ¡no cometas errores!';
+
+  @override
+  String get haveYouSeenThis => '¿Has visto esto?';
+
+  @override
+  String get newPicture => 'Nueva';
+
+  @override
+  String get seenBefore => 'Vista';
+
+  @override
+  String get objectLocationTitle => 'Ubicación de Objetos';
+
+  @override
+  String get objectLocationDescription => 'Recuerda dónde estaban los objetos';
+
+  @override
+  String get objectLocationRules =>
+      '1. Memoriza las posiciones de los objetos en la cuadrícula\n2. Después de desaparecer, colócalos de vuelta\n3. Toca celdas para colocar objetos\n4. Cada ronda añade más objetos\n5. Coloca todos correctamente para avanzar';
+
+  @override
+  String get placeObjects => 'Coloca objetos en sus posiciones';
 }
