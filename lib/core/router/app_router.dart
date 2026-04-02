@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/find_pair/presentation/pages/find_pair_game_page.dart';
+import '../../features/find_pair/presentation/pages/find_pair_size_page.dart';
 import '../../features/gorbov_schulte/presentation/pages/gorbov_game_page.dart';
 import '../../features/gorbov_schulte/presentation/pages/gorbov_size_page.dart';
 import '../../features/leaderboard/presentation/pages/leaderboard_page.dart';
@@ -160,6 +162,33 @@ class AppRouter {
             return FadeTransition(opacity: animation, child: child);
           },
         ),
+      ),
+      GoRoute(
+        path: findPairSize,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const FindPairSizePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: findPairGame,
+        pageBuilder: (context, state) {
+          final extra = state.extra as Map<String, int>;
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: FindPairGamePage(
+              rows: extra['rows']!,
+              cols: extra['cols']!,
+            ),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+          );
+        },
       ),
     ],
   );
