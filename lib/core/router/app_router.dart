@@ -7,6 +7,8 @@ import '../../features/gorbov_schulte/presentation/pages/gorbov_game_page.dart';
 import '../../features/gorbov_schulte/presentation/pages/gorbov_size_page.dart';
 import '../../features/leaderboard/presentation/pages/leaderboard_page.dart';
 import '../../features/memory_matrix/presentation/pages/memory_matrix_game_page.dart';
+import '../../features/n_back/presentation/pages/n_back_game_page.dart';
+import '../../features/n_back/presentation/pages/n_back_level_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_game_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_size_page.dart';
 import '../../features/schulte_table/presentation/pages/schulte_game_page.dart';
@@ -185,6 +187,29 @@ class AppRouter {
             ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: '/n_back',
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const NBackLevelPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: '/n_back/game/:level',
+        pageBuilder: (context, state) {
+          final level = int.parse(state.pathParameters['level']!);
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: NBackGamePage(nLevel: level),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
               return FadeTransition(opacity: animation, child: child);
             },
           );

@@ -37,7 +37,7 @@ class _GameView extends StatelessWidget {
       listener: (context, state) {
         GameResultDialog.show(
           context,
-          isSuccess: state.mistakes == 0,
+          isSuccess: state.mistakes <= 2,
           time: state.totalTime,
           mistakes: state.mistakes,
           onRestart: () {

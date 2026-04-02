@@ -10,16 +10,20 @@ import '../extensions/context_extensions.dart';
 
 class GameResultDialog extends StatelessWidget {
   final bool isSuccess;
-  final int time;
+  final int value;
   final int? mistakes;
   final VoidCallback onRestart;
+  final bool isScoreBased;
+  final bool isPercentBased;
 
   const GameResultDialog({
     super.key,
     required this.isSuccess,
-    required this.time,
+    required this.value,
     this.mistakes,
     required this.onRestart,
+    this.isScoreBased = false,
+    this.isPercentBased = false,
   });
 
   static Future<void> show(
@@ -35,6 +39,7 @@ class GameResultDialog extends StatelessWidget {
     int? level,
     bool higherIsBetter = false,
     bool alwaysSaveRecord = false,
+        bool isPercentBased = false,
   }) {
     if ((isSuccess || alwaysSaveRecord) && gameType != null) {
       getIt<LeaderboardBloc>().add(LeaderboardEvent.saveRecord(
@@ -53,9 +58,10 @@ class GameResultDialog extends StatelessWidget {
       barrierDismissible: false,
       builder: (_) => GameResultDialog(
         isSuccess: isSuccess,
-        time: time,
+        value: time,
         mistakes: mistakes,
         onRestart: onRestart,
+        isPercentBased: isPercentBased,
       ),
     );
   }
@@ -119,9 +125,9 @@ class GameResultDialog extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _ResultStat(
-                        icon: Icons.timer_outlined,
-                        label: context.appLocale.time,
-                        value: '$time${context.appLocale.seconds}',
+                        icon: isPercentBased ? Icons.percent_rounded : (isScoreBased ? Icons.star_rounded : Icons.timer_outlined),
+                        label: isPercentBased ? context.appLocale.accuracy : (isScoreBased ? context.appLocale.score : context.appLocale.time),
+                        value: isPercentBased ? '$value%' : (isScoreBased ? '$value' : '$value${context.appLocale.seconds}'),
                       ),
                       if (mistakes != null) ...[
                         const SizedBox(width: 32),
