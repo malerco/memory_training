@@ -66,6 +66,36 @@ class _GameView extends StatelessWidget {
               child: Column(
                 children: [
                   GameAppBar(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (state.phase == GamePhase.memorizing) ...[
+                          Text(
+                            context.appLocale.memorize,
+                            style: context.textStyles.bodySmall?.copyWith(
+                              color: context.colors.textSecondary,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            '${state.memorizeTimeLeft}',
+                            style: context.textStyles.displayMedium?.copyWith(
+                              color: context.colors.warning,
+                            ),
+                          ).animate(
+                            onPlay: (controller) => controller.repeat(),
+                          ).scale(
+                            begin: const Offset(1, 1),
+                            end: const Offset(1.1, 1.1),
+                            duration: 500.ms,
+                          ).then().scale(
+                            begin: const Offset(1.1, 1.1),
+                            end: const Offset(1, 1),
+                            duration: 500.ms,
+                          ),
+                        ]
+                      ],
+                    ),
                     onRestart: () {
                       context.read<RepeatPatternBloc>().add(const RepeatPatternEvent.restart());
                     },
@@ -95,29 +125,7 @@ class _GameView extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               if (state.phase == GamePhase.memorizing) ...[
-                                Text(
-                                  context.appLocale.memorize,
-                                  style: context.textStyles.bodySmall?.copyWith(
-                                    color: context.colors.textSecondary,
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                Text(
-                                  '${state.memorizeTimeLeft}',
-                                  style: context.textStyles.displayMedium?.copyWith(
-                                    color: context.colors.warning,
-                                  ),
-                                ).animate(
-                                  onPlay: (controller) => controller.repeat(),
-                                ).scale(
-                                  begin: const Offset(1, 1),
-                                  end: const Offset(1.1, 1.1),
-                                  duration: 500.ms,
-                                ).then().scale(
-                                  begin: const Offset(1.1, 1.1),
-                                  end: const Offset(1, 1),
-                                  duration: 500.ms,
-                                ),
+
                               ] else ...[
                                 Text(
                                   context.appLocale.time,

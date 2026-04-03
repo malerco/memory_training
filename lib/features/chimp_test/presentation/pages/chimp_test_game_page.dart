@@ -60,6 +60,50 @@ class _GameView extends StatelessWidget {
               child: Column(
                 children: [
                   GameAppBar(
+                    title: Row(
+                      children: [
+                        Expanded(
+                          flex:5,
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (state.phase == ChimpTestPhase.showing)
+                              Text(
+                                context.appLocale.memorize,
+                                style: context.textStyles.titleMedium?.copyWith(
+                                  color: context.colors.warning,
+                                ),
+                              ).animate(onPlay: (c) => c.repeat()).fadeIn().then().fadeOut(),
+                            if (state.phase == ChimpTestPhase.playing)
+                              Text(
+                                '${context.appLocale.tapNumber} ${state.nextExpectedNumber}',
+                                style: context.textStyles.titleMedium?.copyWith(
+                                  color: context.colors.primary,
+                                ),
+                              ),
+                          ],
+                        )),
+                        Expanded(
+                          flex: 2,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            if (state.phase == ChimpTestPhase.roundComplete) ...[
+                              SizedBox(
+                                height: 48,
+                                child: ElevatedButton.icon(
+                                  onPressed: () {
+                                    context.read<ChimpTestBloc>().add(const ChimpTestEvent.nextRound());
+                                  },
+                                  icon: const Icon(Icons.arrow_forward_rounded),
+                                  label: Text(context.appLocale.nextLevel),
+                                ).animate().fadeIn().scale(),
+                              ),
+                            ],
+                          ],
+                        ))
+                      ],
+                    ),
                     onRestart: () {
                       context.read<ChimpTestBloc>().add(const ChimpTestEvent.restart());
                     },
@@ -68,48 +112,22 @@ class _GameView extends StatelessWidget {
                   Expanded(
                     child: Row(
                       children: [
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              StatItem(
-                                label: context.appLocale.level,
-                                value: '${state.numbersCount}',
-                              ),
-                              const SizedBox(height: 32),
-                              StatItem(
-                                label: context.appLocale.score,
-                                value: '${state.score}',
-                              ),
-                              const SizedBox(height: 16),
-                              if (state.phase == ChimpTestPhase.showing)
-                                Text(
-                                  context.appLocale.memorize,
-                                  style: context.textStyles.titleMedium?.copyWith(
-                                    color: context.colors.warning,
-                                  ),
-                                ).animate(onPlay: (c) => c.repeat()).fadeIn().then().fadeOut(),
-                              if (state.phase == ChimpTestPhase.playing)
-                                Text(
-                                  '${context.appLocale.tapNumber} ${state.nextExpectedNumber}',
-                                  style: context.textStyles.titleMedium?.copyWith(
-                                    color: context.colors.primary,
-                                  ),
-                                ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            StatItem(
+                              label: context.appLocale.level,
+                              value: '${state.numbersCount}',
+                            ),
+                            const SizedBox(height: 32),
+                            StatItem(
+                              label: context.appLocale.score,
+                              value: '${state.score}',
+                            ),
+                            const SizedBox(height: 16),
 
-                              if (state.phase == ChimpTestPhase.roundComplete) ...[
-                                const SizedBox(height: 16),
-                                ElevatedButton.icon(
-                                  onPressed: () {
-                                    context.read<ChimpTestBloc>().add(const ChimpTestEvent.nextRound());
-                                  },
-                                  icon: const Icon(Icons.arrow_forward_rounded),
-                                  label: Text(context.appLocale.nextLevel),
-                                ).animate().fadeIn().scale(),
-                              ],
-                            ],
-                          ),
+                          ],
                         ),
 
                         Expanded(

@@ -66,6 +66,43 @@ class _GameView extends StatelessWidget {
               child: Column(
                 children: [
                   GameAppBar(
+                    title: Row(
+                      children: [
+                        if (state.phase == FindPairPhase.preview) ...[
+                          Expanded(
+                            flex:6,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                context.appLocale.memorize,
+                                style: context.textStyles.bodySmall?.copyWith(
+                                  color: context.colors.warning,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                '${state.previewTimeLeft}',
+                                style: context.textStyles.displayMedium?.copyWith(
+                                  color: context.colors.warning,
+                                ),
+                              ).animate(
+                                onPlay: (c) => c.repeat(),
+                              ).scale(
+                                begin: const Offset(1, 1),
+                                end: const Offset(1.1, 1.1),
+                                duration: 500.ms,
+                              ).then().scale(
+                                begin: const Offset(1.1, 1.1),
+                                end: const Offset(1, 1),
+                                duration: 500.ms,
+                              ),
+                            ],
+                          )),
+                          Expanded(flex: 2, child: Row())
+                        ]
+                      ],
+                    ),
                     onRestart: () {
                       context.read<FindPairBloc>().add(const FindPairEvent.restart());
                     },
@@ -81,29 +118,7 @@ class _GameView extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               if (state.phase == FindPairPhase.preview) ...[
-                                Text(
-                                  context.appLocale.memorize,
-                                  style: context.textStyles.bodySmall?.copyWith(
-                                    color: context.colors.warning,
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                Text(
-                                  '${state.previewTimeLeft}',
-                                  style: context.textStyles.displayMedium?.copyWith(
-                                    color: context.colors.warning,
-                                  ),
-                                ).animate(
-                                  onPlay: (c) => c.repeat(),
-                                ).scale(
-                                  begin: const Offset(1, 1),
-                                  end: const Offset(1.1, 1.1),
-                                  duration: 500.ms,
-                                ).then().scale(
-                                  begin: const Offset(1.1, 1.1),
-                                  end: const Offset(1, 1),
-                                  duration: 500.ms,
-                                ),
+
                               ] else
                                 GameStatsDisplay(
                                   mistakes: state.mistakes,

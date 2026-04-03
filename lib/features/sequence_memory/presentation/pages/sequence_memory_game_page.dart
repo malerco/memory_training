@@ -54,6 +54,7 @@ class _GameView extends StatelessWidget {
         );
       },
       builder: (context, state) {
+        final (phaseText, phaseColor) = getPhase(state, context);
         return Scaffold(
           body: SafeArea(
             child: Padding(
@@ -61,6 +62,23 @@ class _GameView extends StatelessWidget {
               child: Column(
                 children: [
                   GameAppBar(
+                    title: Row(
+                      children: [
+                        Expanded(
+                          flex: 6,
+                          child: Text(
+                            phaseText,
+                            style: context.textStyles.titleMedium?.copyWith(
+                              color: phaseColor,
+                            ),
+                            textAlign: TextAlign.center,
+                          ).animate(
+                            key: ValueKey(state.phase),
+                          ).fadeIn().scale(begin: const Offset(0.8, 0.8)),
+                        ),
+                        Expanded(flex:2, child: Row())
+                      ],
+                    ),
                     onRestart: () {
                       context.read<SequenceMemoryBloc>().add(const SequenceMemoryEvent.restart());
                     },
@@ -93,18 +111,10 @@ class _GameView extends StatelessWidget {
       },
     );
   }
-}
 
-class _StatsPanel extends StatelessWidget {
-  final SequenceMemoryState state;
-
-  const _StatsPanel({required this.state});
-
-  @override
-  Widget build(BuildContext context) {
+  (String,Color) getPhase(SequenceMemoryState state, BuildContext context){
     String phaseText;
     Color phaseColor;
-    
     switch (state.phase) {
       case SequencePhase.ready:
         phaseText = context.appLocale.getReady;
@@ -131,20 +141,23 @@ class _StatsPanel extends StatelessWidget {
         phaseColor = context.colors.success;
         break;
     }
+
+    return (phaseText, phaseColor);
+  }
+}
+
+class _StatsPanel extends StatelessWidget {
+  final SequenceMemoryState state;
+
+  const _StatsPanel({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
     
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          phaseText,
-          style: context.textStyles.titleMedium?.copyWith(
-            color: phaseColor,
-          ),
-        ).animate(
-          key: ValueKey(state.phase),
-        ).fadeIn().scale(begin: const Offset(0.8, 0.8)),
-        const SizedBox(height: 32),
         _StatItem(
           label: context.appLocale.level,
           value: '${state.level}',

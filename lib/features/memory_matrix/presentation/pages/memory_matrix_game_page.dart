@@ -56,6 +56,35 @@ class _GameView extends StatelessWidget {
               child: Column(
                 children: [
                   GameAppBar(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (state.phase == MatrixPhase.memorizing) ...[
+                          Expanded(
+                            flex: 5,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  context.appLocale.memorize,
+                                  style: context.textStyles.bodySmall?.copyWith(
+                                    color: context.colors.warning,
+                                  ),
+                                ),
+                                const SizedBox(width: 24),
+                                Text(
+                                  '${state.memorizeTimeLeft}',
+                                  style: context.textStyles.displaySmall?.copyWith(
+                                    color: context.colors.warning,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(flex:2, child: Row())
+                        ],
+                      ],
+                    ),
                     onRestart: () {
                       context.read<MemoryMatrixBloc>().add(const MemoryMatrixEvent.restart());
                     },
@@ -63,12 +92,15 @@ class _GameView extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         if (state.phase == MatrixPhase.playing)
-                          ElevatedButton.icon(
-                            onPressed: () {
-                              context.read<MemoryMatrixBloc>().add(const MemoryMatrixEvent.submit());
-                            },
-                            icon: const Icon(Icons.check_rounded),
-                            label: Text(context.appLocale.confirm),
+                          SizedBox(
+                            height: 48,
+                            child: ElevatedButton.icon(
+                              onPressed: () {
+                                context.read<MemoryMatrixBloc>().add(const MemoryMatrixEvent.submit());
+                              },
+                              icon: const Icon(Icons.check_rounded),
+                              label: Text(context.appLocale.confirm),
+                            ),
                           ),
                       ],
                     ),
@@ -77,8 +109,8 @@ class _GameView extends StatelessWidget {
                   Expanded(
                     child: Row(
                       children: [
-                        SizedBox(
-                          width: 140,
+                        Expanded(
+                          flex:1,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,25 +151,12 @@ class _GameView extends StatelessWidget {
                                 '${state.totalTime}',
                                 style: context.textStyles.headlineMedium,
                               ),
-                              if (state.phase == MatrixPhase.memorizing) ...[
-                                const SizedBox(height: 24),
-                                Text(
-                                  context.appLocale.memorize,
-                                  style: context.textStyles.bodySmall?.copyWith(
-                                    color: context.colors.warning,
-                                  ),
-                                ),
-                                Text(
-                                  '${state.memorizeTimeLeft}',
-                                  style: context.textStyles.displaySmall?.copyWith(
-                                    color: context.colors.warning,
-                                  ),
-                                ),
-                              ],
+
                             ],
                           ),
                         ),
                         Expanded(
+                          flex: 3,
                           child: Stack(
                             alignment: Alignment.center,
                             children: [

@@ -9,7 +9,7 @@ part 'object_location_bloc.freezed.dart';
 part 'object_location_event.dart';
 part 'object_location_state.dart';
 
-enum ObjectLocationPhase { memorizing, playing, checking, roundComplete, gameOver }
+enum ObjectLocationPhase { memorizing, playing, checking, roundComplete, completed, gameOver }
 
 @injectable
 class ObjectLocationBloc extends Bloc<ObjectLocationEvent, ObjectLocationState> {
@@ -118,9 +118,20 @@ class ObjectLocationBloc extends Bloc<ObjectLocationEvent, ObjectLocationState> 
     }
 
     final allCorrect = correctCount == state.objectCount;
-    
+    final maxCells = state.gridSize * state.gridSize;
+    final isGameCompleted = allCorrect && state.objectCount >= maxCells;
+
+    ObjectLocationPhase nextPhase;
+    if (!allCorrect) {
+      nextPhase = ObjectLocationPhase.gameOver;
+    } else if (isGameCompleted) {
+      nextPhase = ObjectLocationPhase.completed;
+    } else {
+      nextPhase = ObjectLocationPhase.roundComplete;
+    }
+
     emit(state.copyWith(
-      phase: allCorrect ? ObjectLocationPhase.roundComplete : ObjectLocationPhase.gameOver,
+      phase: nextPhase,
       correctCount: correctCount,
       score: state.score + correctCount,
     ));

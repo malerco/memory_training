@@ -47,11 +47,13 @@ class _GameView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ObjectLocationBloc, ObjectLocationState>(
       listenWhen: (prev, curr) =>
-          prev.phase != ObjectLocationPhase.gameOver && curr.phase == ObjectLocationPhase.gameOver,
+      (prev.phase != ObjectLocationPhase.gameOver && curr.phase == ObjectLocationPhase.gameOver) ||
+          (prev.phase != ObjectLocationPhase.completed && curr.phase == ObjectLocationPhase.completed),
       listener: (context, state) {
+        final isVictory = state.phase == ObjectLocationPhase.completed;
         GameResultDialog.show(
           context,
-          isSuccess: state.score >= 10,
+          isSuccess: isVictory,
           time: state.score,
           onRestart: () {
             context.read<ObjectLocationBloc>().add(const ObjectLocationEvent.restart());
@@ -59,6 +61,7 @@ class _GameView extends StatelessWidget {
           gameType: 'object_location',
           gridSize: state.gridSize,
           higherIsBetter: true,
+          alwaysSaveRecord: true,
         );
       },
       builder: (context, state) {
@@ -95,56 +98,68 @@ class _GameView extends StatelessWidget {
                       ],
                     ),
                     trailing: state.phase == ObjectLocationPhase.playing
-                        ? ElevatedButton.icon(
-                            onPressed: state.userAnswers.length == state.objectCount
-                                ? () {
-                                    context.read<ObjectLocationBloc>().add(
-                                      const ObjectLocationEvent.submit(),
-                                    );
-                                  }
-                                : null,
-                            icon: const Icon(Icons.check_rounded),
-                            label: Text(context.appLocale.confirm),
-                          )
-                        : null,
+                        ? SizedBox(
+                          height: 48,
+                          child: ElevatedButton.icon(
+                              onPressed: state.userAnswers.length == state.objectCount
+                                  ? () {
+                                      context.read<ObjectLocationBloc>().add(
+                                        const ObjectLocationEvent.submit(),
+                                      );
+                                    }
+                                  : null,
+                              icon: const Icon(Icons.check_rounded),
+                              label: Text(context.appLocale.confirm),
+                            ),
+                        )
+                        : state.phase == ObjectLocationPhase.roundComplete ?
+          SizedBox(
+            height: 48,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                context.read<ObjectLocationBloc>().add(const ObjectLocationEvent.nextRound());
+              },
+              icon: const Icon(Icons.arrow_forward_rounded),
+              label: Text(context.appLocale.nextLevel),
+            ).animate().fadeIn().scale(),
+          ) : null
+
                   ),
                   const SizedBox(height: 16),
                   Expanded(child: Row(
                     children: [
                       Expanded(
                         flex:1,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Row(
                           children: [
-                            StatItem(
-                              label: context.appLocale.round,
-                              value: '${state.round}',
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                StatItem(
+                                  label: context.appLocale.round,
+                                  value: '${state.round}',
+                                ),
+                                const SizedBox(height: 32),
+                                StatItem(
+                                  label: context.appLocale.score,
+                                  value: '${state.score}',
+                                ),
+                              ],
                             ),
-                            const SizedBox(height: 32),
-                            StatItem(
-                              label: context.appLocale.score,
-                              value: '${state.score}',
-                            ),
-
+                            const SizedBox(width: 16,),
                             if (state.phase == ObjectLocationPhase.playing) ...[
                               const SizedBox(height: 16),
-                              ObjectPalette(
-                                objectPositions: state.objectPositions,
-                                userAnswers: state.userAnswers,
-                                icons: icons,
+                              Expanded(
+                                child: SingleChildScrollView(
+                                  child: ObjectPalette(
+                                    objectPositions: state.objectPositions,
+                                    userAnswers: state.userAnswers,
+                                    icons: icons,
+                                  ),
+                                ),
                               ),
-                            ],
-                            if (state.phase == ObjectLocationPhase.roundComplete) ...[
-                              const SizedBox(height: 16),
-                              ElevatedButton.icon(
-                                onPressed: () {
-                                  context.read<ObjectLocationBloc>().add(const ObjectLocationEvent.nextRound());
-                                },
-                                icon: const Icon(Icons.arrow_forward_rounded),
-                                label: Text(context.appLocale.nextLevel),
-                              ).animate().fadeIn().scale(),
-                            ],
+                            ]
                           ],
                         ),
                       ),

@@ -26,38 +26,37 @@ class ObjectPalette extends StatelessWidget {
         color: context.colors.surface,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: allObjects.map((objectType) {
-            final isPlaced = placedObjects.contains(objectType);
-            return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 8),
-              width: 48,
-              height: 48,
-              decoration: BoxDecoration(
+      child: Wrap(
+        spacing: 2,
+        runSpacing: 2,
+        alignment: WrapAlignment.spaceBetween,
+        children: allObjects.map((objectType) {
+          final isPlaced = placedObjects.contains(objectType);
+          return Container(
+            margin: const EdgeInsets.symmetric(horizontal: 8),
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              color: isPlaced
+                  ? context.colors.surfaceLight
+                  : context.colors.primary.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: isPlaced ? Colors.transparent : context.colors.primary,
+                width: 2,
+              ),
+            ),
+            child: Center(
+              child: Icon(
+                icons[objectType % icons.length],
                 color: isPlaced
-                    ? context.colors.surfaceLight
-                    : context.colors.primary.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: isPlaced ? Colors.transparent : context.colors.primary,
-                  width: 2,
-                ),
+                    ? context.colors.textSecondary
+                    : context.colors.primary,
+                size: 24,
               ),
-              child: Center(
-                child: Icon(
-                  icons[objectType % icons.length],
-                  color: isPlaced
-                      ? context.colors.textSecondary
-                      : context.colors.primary,
-                  size: 24,
-                ),
-              ),
-            );
-          }).toList(),
-        ),
+            ),
+          );
+        }).toList(),
       ),
     );
   }
