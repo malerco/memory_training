@@ -11,6 +11,9 @@ import '../../features/leaderboard/presentation/pages/leaderboard_page.dart';
 import '../../features/memory_matrix/presentation/pages/memory_matrix_game_page.dart';
 import '../../features/n_back/presentation/pages/n_back_game_page.dart';
 import '../../features/n_back/presentation/pages/n_back_level_page.dart';
+import '../../features/object_location/presentation/pages/object_location_game_page.dart';
+import '../../features/object_location/presentation/pages/object_location_level_page.dart';
+import '../../features/picture_memory/presentation/pages/picture_memory_game_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_game_page.dart';
 import '../../features/repeat_pattern/presentation/pages/repeat_pattern_size_page.dart';
 import '../../features/schulte_table/presentation/pages/schulte_game_page.dart';
@@ -41,6 +44,9 @@ class AppRouter {
   static const String sequenceMemoryGame = '/sequence_memory/game';
   static const String chimpTestSize = '/chimp_test/size';
   static const String chimpTestGame = '/chimp_test/game';
+  static const String pictureMemory = '/picture_memory';
+  static const String objectLocationSize = '/object_location/size';
+  static const String objectLocationGame = '/object_location/game';
 
   static final GoRouter router = GoRouter(
     initialLocation: splash,
@@ -266,6 +272,40 @@ class AppRouter {
           return CustomTransitionPage(
             key: state.pageKey,
             child: ChimpTestGamePage(gridSize: size),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: pictureMemory,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const PictureMemoryGamePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: objectLocationSize,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const ObjectLocationLevelPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
+      GoRoute(
+        path: objectLocationGame,
+        pageBuilder: (context, state) {
+          final extra = state.extra as Map<String, int>;
+          final size = extra['size'] ?? 3;
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: ObjectLocationGamePage(gridSize: size),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               return FadeTransition(opacity: animation, child: child);
             },

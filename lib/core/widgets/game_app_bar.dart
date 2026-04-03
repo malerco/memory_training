@@ -6,12 +6,14 @@ class GameAppBar extends StatelessWidget {
   final VoidCallback? onRestart;
   final VoidCallback? onMenu;
   final Widget? trailing;
+  final Widget? title;
 
   const GameAppBar({
     super.key,
     this.onRestart,
     this.onMenu,
     this.trailing,
+    this.title
   });
 
   @override
@@ -28,7 +30,12 @@ class GameAppBar extends StatelessWidget {
             icon: Icons.refresh_rounded,
             onTap: onRestart!,
           ),
-        const Spacer(),
+        if (title != null)...[
+          Expanded(
+            child: title!,
+          ),
+        ]
+        else const Spacer(),
         if (trailing != null) trailing!,
       ],
     );

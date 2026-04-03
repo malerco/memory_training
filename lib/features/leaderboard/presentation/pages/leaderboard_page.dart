@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:memory_training/core/router/app_router.dart';
 
 import '../../../../core/di/injection.dart';
 import '../../../../core/extensions/context_extensions.dart';
@@ -46,6 +45,12 @@ class _LeaderboardView extends StatelessWidget {
         return context.appLocale.nBackTitle;
       case 'sequence_memory':
         return context.appLocale.sequenceMemory;
+      case 'chimp_test':
+        return context.appLocale.chimpTestTitle;
+      case 'picture_memory':
+        return context.appLocale.pictureMemoryTitle;
+      case 'object_location':
+        return context.appLocale.objectLocationTitle;
       default:
         return key;
     }
@@ -67,6 +72,12 @@ class _LeaderboardView extends StatelessWidget {
         return Icons.history_rounded;
       case 'sequence_memory':
         return Icons.linear_scale_rounded;
+      case 'chimp_test':
+        return Icons.pets_rounded;
+      case 'picture_memory':
+        return Icons.image_rounded;
+      case 'object_location':
+        return Icons.place_rounded;
       default:
         return Icons.games_rounded;
     }
@@ -84,7 +95,7 @@ class _LeaderboardView extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () => context.go(AppRouter.home),
+                    onPressed: () => context.go('/home'),
                     icon: const Icon(Icons.arrow_back_rounded),
                     style: IconButton.styleFrom(
                       backgroundColor: context.colors.surface,
@@ -113,17 +124,17 @@ class _LeaderboardView extends StatelessWidget {
                       );
                     }
 
-                    final gameTypes = ['repeat_pattern', 'schulte', 'gorbov_schulte', 'memory_matrix', 'find_pair', 'n_back', 'sequence_memory'];
+                    final gameTypes = ['repeat_pattern', 'schulte', 'gorbov_schulte', 'find_pair', 'n_back', 'sequence_memory', 'chimp_test', 'picture_memory', 'object_location'];
                     final groupedRecords = <String, Map<String, int>>{};
-                    
+
                     for (final gameType in gameTypes) {
                       groupedRecords[gameType] = {};
                     }
-                    
+
                     for (final entry in state.records.entries) {
                       for (final gameType in gameTypes) {
                         if (entry.key.startsWith(gameType)) {
-                          final size = entry.key.replaceFirst('${gameType}_', '');
+                          final size = entry.key.replaceFirst('${gameType}_', '').replaceFirst('${gameType}', '');
                           groupedRecords[gameType]![size] = entry.value;
                         }
                       }
@@ -134,14 +145,18 @@ class _LeaderboardView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final gameType = gameTypes[index];
                         final records = groupedRecords[gameType]!;
-                        
+                        final isScoreBased = ['chimp_test', 'picture_memory', 'object_location', 'n_back', 'sequence_memory'].contains(gameType);
+                        final isPercentBased = gameType == 'n_back';
+
                         return _GameRecordSection(
                           icon: _getTrainerIcon(gameType),
                           title: _getTrainerName(context, gameType),
                           records: records,
+                          isScoreBased: isScoreBased,
+                          isPercentBased: isPercentBased,
                         ).animate()
-                          .fadeIn(delay: Duration(milliseconds: 100 * index))
-                          .slideX(begin: 0.2);
+                            .fadeIn(delay: Duration(milliseconds: 100 * index))
+                            .slideX(begin: 0.2);
                       },
                     );
                   },
@@ -159,11 +174,15 @@ class _GameRecordSection extends StatelessWidget {
   final IconData icon;
   final String title;
   final Map<String, int> records;
+  final bool isScoreBased;
+  final bool isPercentBased;
 
   const _GameRecordSection({
     required this.icon,
     required this.title,
     required this.records,
+    this.isScoreBased = false,
+    this.isPercentBased = false,
   });
 
   @override
@@ -248,7 +267,7 @@ class _GameRecordSection extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          '${entry.value}${context.appLocale.seconds}',
+                          isPercentBased ? '${entry.value}%' : (isScoreBased ? '${entry.value}' : '${entry.value}${context.appLocale.seconds}'),
                           style: context.textStyles.bodyMedium?.copyWith(
                             color: context.colors.secondary,
                             fontWeight: FontWeight.bold,
@@ -258,6 +277,76 @@ class _GameRecordSection extends StatelessWidget {
                     ),
                   );
                 }).toList(),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _RecordCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final int? record;
+
+  const _RecordCard({
+    required this.icon,
+    required this.title,
+    required this.record,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: context.colors.cardGradient,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: context.colors.primary.withOpacity(0.2),
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 56,
+            height: 56,
+            decoration: BoxDecoration(
+              color: context.colors.primary.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Icon(
+              icon,
+              color: context.colors.primary,
+              size: 28,
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              title,
+              style: context.textStyles.titleMedium,
+            ),
+          ),
+          if (record != null) ...[
+            Icon(
+              Icons.emoji_events_rounded,
+              color: context.colors.warning,
+              size: 24,
+            ),
+            const SizedBox(width: 8),
+            Text(
+              '$record${context.appLocale.seconds}',
+              style: context.textStyles.headlineSmall?.copyWith(
+                color: context.colors.secondary,
+              ),
+            ),
+          ] else
+            Text(
+              context.appLocale.noRecords,
+              style: context.textStyles.bodyMedium?.copyWith(
+                color: context.colors.textSecondary,
               ),
             ),
         ],

@@ -33,6 +33,10 @@ import '../../features/leaderboard/presentation/bloc/leaderboard_bloc.dart'
 import '../../features/memory_matrix/presentation/bloc/memory_matrix_bloc.dart'
     as _i632;
 import '../../features/n_back/presentation/bloc/n_back_bloc.dart' as _i475;
+import '../../features/object_location/presentation/bloc/object_location_bloc.dart'
+    as _i214;
+import '../../features/picture_memory/presentation/bloc/picture_memory_bloc.dart'
+    as _i337;
 import '../../features/repeat_pattern/presentation/bloc/repeat_pattern_bloc.dart'
     as _i717;
 import '../../features/schulte_table/presentation/bloc/schulte_bloc.dart'
@@ -61,6 +65,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i475.NBackBloc>(() => _i475.NBackBloc());
     gh.factory<_i1068.SequenceMemoryBloc>(() => _i1068.SequenceMemoryBloc());
     gh.factory<_i499.ChimpTestBloc>(() => _i499.ChimpTestBloc());
+    gh.factory<_i337.PictureMemoryBloc>(() => _i337.PictureMemoryBloc());
+    gh.factory<_i214.ObjectLocationBloc>(() => _i214.ObjectLocationBloc());
     gh.lazySingleton<_i655.LeaderboardRepository>(
       () => _i1008.LeaderboardRepositoryImpl(gh<_i460.SharedPreferences>()),
     );
